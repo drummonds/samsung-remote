@@ -3,19 +3,21 @@ package ws
 import (
 	"context"
 	"fmt"
-	"github.com/stretchr/testify/assert"
 	"testing"
 	"time"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestRemote(t *testing.T) {
 	remote := NewRemote(SamsungRemoteConfig{
 		BaseUrl: "wss://tv_ip:8002",
-		Name:    "Rainu",
+		Name:    "drummonds",
 		Token:   "My_TOKEN",
 	})
 
-	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
 	token, err := remote.ConnectWithContext(nil, ctx)
 	assert.NoError(t, err)
 

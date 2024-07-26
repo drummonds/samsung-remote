@@ -1,12 +1,16 @@
 # samsung-remote
+
 A golang library for remote controlling Samsung televisions via http(s) or websocket connection.
 
-There are two ways to control the Samsung TV: via HTTP or via websockets. Each interface can do a little more or less 
+I have forked this from github.com/rainu/samsung-remote which has now been archived.
+
+There are two ways to control the Samsung TV: via HTTP or via websockets. Each interface can do a little more or less
 than the other. The HTTP interface is synchronous. The WS interface is asynchronous. The HTTP interface can be used
-without authorization. With the WS interface, permission may need to be granted in Samsung TV. Furthermore, I have 
+without authorization. With the WS interface, permission may need to be granted in Samsung TV. Furthermore, I have
 observed with my TV that this only works with the WSS interface!
 
 # usage
+
 ```go
 package main
 
@@ -41,49 +45,56 @@ func main() {
 
 The list of accepted keys may vary depending on the TV model, but the following list has some common key codes and their descriptions.
 
-|Key code| Description |
-|------|----|
-|KEY_POWEROFF       |Power off|
-|KEY_UP             |Up|
-|KEY_DOWN           |Down|
-|KEY_LEFT           |Left|
-|KEY_RIGHT          |Right|
-|KEY_CHUP           |P Up|
-|KEY_CHDOWN         |P Down|
-|KEY_ENTER          |Enter|
-|KEY_RETURN         |Return|
-|KEY_CH_LIST        |Channel List|
-|KEY_MENU           |Menu|
-|KEY_SOURCE         |Source|
-|KEY_GUIDE          |Guide|
-|KEY_TOOLS          |Tools|
-|KEY_INFO           |Info|
-|KEY_RED            |A / Red|
-|KEY_GREEN          |B / Green|
-|KEY_YELLOW         |C / Yellow|
-|KEY_BLUE           |D / Blue|
-|KEY_PANNEL_CHDOWN  |3D|
-|KEY_VOLUP          |Volume Up|
-|KEY_VOLDOWN        |Volume Down|
-|KEY_MUTE           |Mute|
-|KEY_0              |0|
-|KEY_1              |1|
-|KEY_2              |2|
-|KEY_3              |3|
-|KEY_4              |4|
-|KEY_5              |5|
-|KEY_6              |6|
-|KEY_7              |7|
-|KEY_8              |8|
-|KEY_9              |9|
-|KEY_DTV            |TV Source|
-|KEY_HDMI           |HDMI Source|
-|KEY_CONTENTS       |SmartHub|
+| Key code          | Description  |
+| ----------------- | ------------ |
+| KEY_POWEROFF      | Power off    |
+| KEY_UP            | Up           |
+| KEY_DOWN          | Down         |
+| KEY_LEFT          | Left         |
+| KEY_RIGHT         | Right        |
+| KEY_CHUP          | P Up         |
+| KEY_CHDOWN        | P Down       |
+| KEY_ENTER         | Enter        |
+| KEY_RETURN        | Return       |
+| KEY_CH_LIST       | Channel List |
+| KEY_MENU          | Menu         |
+| KEY_SOURCE        | Source       |
+| KEY_GUIDE         | Guide        |
+| KEY_TOOLS         | Tools        |
+| KEY_INFO          | Info         |
+| KEY_RED           | A / Red      |
+| KEY_GREEN         | B / Green    |
+| KEY_YELLOW        | C / Yellow   |
+| KEY_BLUE          | D / Blue     |
+| KEY_PANNEL_CHDOWN | 3D           |
+| KEY_VOLUP         | Volume Up    |
+| KEY_VOLDOWN       | Volume Down  |
+| KEY_MUTE          | Mute         |
+| KEY_0             | 0            |
+| KEY_1             | 1            |
+| KEY_2             | 2            |
+| KEY_3             | 3            |
+| KEY_4             | 4            |
+| KEY_5             | 5            |
+| KEY_6             | 6            |
+| KEY_7             | 7            |
+| KEY_8             | 8            |
+| KEY_9             | 9            |
+| KEY_DTV           | TV Source    |
+| KEY_HDMI          | HDMI Source  |
+| KEY_CONTENTS      | SmartHub     |
 
 # Honor
 
 Since this API does not seem to be documented anywhere, I had to look in different repositories :)
 
-* https://github.com/Ape/samsungctl
-* https://github.com/Ape/samsungctl/issues/75
-* https://gist.github.com/freman/8d98742de09d476c4d3d9e5d55f9db63
+- https://github.com/Ape/samsungctl
+- https://github.com/Ape/samsungctl/issues/75
+- https://gist.github.com/freman/8d98742de09d476c4d3d9e5d55f9db63
+
+# WSL
+
+I use WSL and some of the discovery requires multicast which is why
+I wanted to run both a windows and linux version.
+So far I have been unsuccessful in being able to talk to
+the TV but I think this is because I have been running in WSL which is not on the same local network as my house.

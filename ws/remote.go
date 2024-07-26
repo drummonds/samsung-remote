@@ -7,11 +7,12 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/gorilla/websocket"
 	"net/http"
 	"strings"
 	"sync"
 	"time"
+
+	"github.com/gorilla/websocket"
 )
 
 type samsungRemote struct {
@@ -127,10 +128,10 @@ type wsMessage struct {
 	} `json:"data"`
 }
 
-//Create a new instance of websocket-based SamsungRemote.
+// Create a new instance of websocket-based SamsungRemote.
 func NewRemote(conf SamsungRemoteConfig) SamsungRemote {
 	if conf.Name == "" {
-		conf.Name = "rainu-samsung-remote"
+		conf.Name = "drummonds-samsung-remote"
 	}
 	if conf.WebsocketDialer == nil {
 		conf.WebsocketDialer = &websocket.Dialer{
